@@ -1,0 +1,5 @@
+{
+  "dependencies": [
+    // add vendor bundle dependencies for aurelia.json here
+  ]
+}
