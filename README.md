@@ -1,15 +1,34 @@
-# Aurelia component and library installer
+# Aurelia installer
 
-Install and manage reusable, shared, independent components in your Aurelia apps ;)
-Also supports installation of Aurelia plugins and even configuaration of vendor libraries! 
+- Install and manage components
+- Installation Aurelia plugins
+- Configure vendor and 3rd party libraries
+
+All automated for your pleasure! Viva Aurelia :) 
 
 ## Install
 
 `npm i aurelia-installer -g`
 
+## Components
+
+A component is an application entity. Typically it consists of a View model which has a View associated.
+The component can also have dependencies to external modules and 3rd party libraries.
+Components by convention live in `src/components` with a folder for each component 
+
+The `aurelia-installer` can manage the *creation*, *installation* and application *bundling* of such components!
+
 ### Sample component
 
 [contact-detail](https://github.com/kristianmandrup/contact-detail)
+
+```bash
+src/components/contact-detail
+  contact-detail.html
+  contact-detail.ts
+  package.json
+  vendor-bundles.js
+```
 
 ## Usage
 
