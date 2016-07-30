@@ -65,7 +65,7 @@ TODO: remove bundled component dependencies...
 
 `ai vendor bootstrap`
 
-Will lookup the specified vendor library in `registry.json` by name.
+Will lookup the specified vendor library in `lib-registry.json` by name.
 If an entry is found, will add this to vendor bundle entries in `aurelia.json` 
 
 ## Install plugin
@@ -74,11 +74,16 @@ If an entry is found, will add this to vendor bundle entries in `aurelia.json`
 
 `ai plugin validation`
 
-It works with most of the simple plugins. There will soon be support for more customized install procedures. 
+Supported plugins: All the official and 3rd party plugins listed [here](http://blog.durandal.io/2015/11/17/aurelia-beta-week-day-2-plugins/) 
+
+Simple plugins can be configured directly via `plugin-registry.json`.
+
+There is support for more customized install procedures, such as for `auth` and `materialize` plugins via custom installer classes. 
+Please provide configuration your own plugins ;)
 
 #### Contribute vendor bundle specs
 
-Please update the `registry.json` with bundling specifications for your favourite libs ;)
+Please update the `lib-registry.json` with bundling specifications for your favourite libs ;)
 
 ## Development
 

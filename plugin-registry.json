@@ -11,7 +11,7 @@
   "computed": "aurelia-computed",
   "breeze": "aurelia-breeze",
   "auth": {
-    "jspm": "auth"
+    "jspm": "aurelia-auth"
   },
   "firebase": "aurelia-firebase",
   "leaflet": "aurelia-leaflet",
