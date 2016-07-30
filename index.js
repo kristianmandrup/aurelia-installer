@@ -3,6 +3,8 @@
 const program = require('commander');
 const InstallFromGit = require('./lib/commands/install');
 const UnInstall = require('./lib/commands/uninstall');
+const InstallPlugin = require('./lib/commands/plugin');
+
 const ComponentBundler = require('./lib/commands/bundle'); 
 const ComponentCreator = require('./lib/commands/create');
 const VendorBundler = require('./lib/commands/vendor');
@@ -23,6 +25,20 @@ program
         process.exit(1);
       }
       console.log(repo, 'installed');
+    });
+  })
+  .parse(process.argv);
+
+program
+  .command('plugin <name>')
+  .description('Install an Aurelia plugin')
+  .action(function(name) {
+    new InstallPlugin(name).install((err) => {
+      if (err) {
+        console.error(err);
+        process.exit(1);
+      }
+      console.log(name, 'plugin installed');
     });
   })
   .parse(process.argv);

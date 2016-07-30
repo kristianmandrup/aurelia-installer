@@ -1,6 +1,7 @@
 # Aurelia component and library installer
 
-Install reusable, shared, independent components in your Aurelia apps ;)
+Install and manage reusable, shared, independent components in your Aurelia apps ;)
+Also supports installation of Aurelia plugins and even configuaration of vendor libraries! 
 
 ## Install
 
@@ -20,6 +21,9 @@ Install reusable, shared, independent components in your Aurelia apps ;)
 
 *Vendor library*
 - bundle it
+
+*Plugin*
+- install and configure it
 
 ### Install component from repo
 
@@ -63,6 +67,14 @@ TODO: remove bundled component dependencies...
 
 Will lookup the specified vendor library in `registry.json` by name.
 If an entry is found, will add this to vendor bundle entries in `aurelia.json` 
+
+## Install plugin
+
+*WIP experimental*
+
+`ai plugin validation`
+
+It works with most of the simple plugins. There will soon be support for more customized install procedures. 
 
 #### Contribute vendor bundle specs
 

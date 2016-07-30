@@ -1,0 +1,19 @@
+{
+  "animator-css": "aurelia-animator-css",
+  "animator-velocity": "aurelia-animator-velocity",
+  "fetch": {
+    "jspm": "aurelia-fetch-client"
+  },
+  "dialog": "aurelia-dialog",
+  "i18n": "aurelia-i18n",
+  "ui-virtualization": "aurelia-ui-virtualization",
+  "validation": "aurelia-validation",
+  "computed": "aurelia-computed",
+  "breeze": "aurelia-breeze",
+  "auth": {
+    "jspm": "auth"
+  },
+  "firebase": "aurelia-firebase",
+  "leaflet": "aurelia-leaflet",
+  "materialize": "aurelia-materialize-bridge"
+}
