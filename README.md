@@ -29,6 +29,14 @@ All automated for your pleasure!
 - `plugin` install and configure a plugin
 
 
+## Features
+
+"Features in Aurelia allows you to specify folders which are home to features. A feature might be a part of your app that is being worked on by another team or
+a developer within your own team. It allows you to encapsulate and organise your code better as to
+not interfere or disrupt what anyone else might be working on in the same application." - Aurelia for real world applications (book)
+
+The installer tries to incorporate best practices for managing Aurelia features, components and elements.
+
 ## Components
 
 A component is an application entity. Typically it consists of at least a *ViewModel* with an optional *View* associated.

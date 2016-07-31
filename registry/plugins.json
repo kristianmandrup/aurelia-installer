@@ -1,22 +1,16 @@
 {
   "animator-css": "aurelia-animator-css",
   "animator-velocity": "aurelia-animator-velocity",
-  "fetch": {
-    "jspm": "aurelia-fetch-client"
-  },
+  "fetch": "aurelia-fetch-client",
   "dialog": "aurelia-dialog",
   "i18n": "aurelia-i18n",
   "ui-virtualization": "aurelia-ui-virtualization",
   "validation": "aurelia-validation",
   "computed": "aurelia-computed",
   "breeze": "aurelia-breeze",
-  "auth": {
-    "jspm": "aurelia-auth"
-  },
+  "auth": "aurelia-auth",
   "firebase": "aurelia-firebase",
   "leaflet": "aurelia-leaflet",
   "materialize": "aurelia-materialize-bridge",
-  "property-injection": {
-    "npm": "aurelia-property-injection"
-  }
+  "property-injection": "aurelia-property-injection"
 }
