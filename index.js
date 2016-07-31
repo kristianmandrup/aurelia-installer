@@ -60,10 +60,10 @@ program
   })
 
 program
-  .command('uninstall <name>')
+  .command('uninstall <name> [mountPath]')
   .description('Uninstall a component')
   .action(function(name) {
-    new UnInstall().named(name).uninstall((err) => {
+    new UnInstall().named(name).at(mountPath).uninstall((err) => {
       if (err) {
         console.error(err);
         process.exit(1);
@@ -87,10 +87,10 @@ program
   })
 
 program
-  .command('create <name>')
+  .command('create <name> [mountPath]')
   .description('Create a component within the application')
-  .action(function(name) {    
-    new ComponentCreator().named(name).create();
+  .action(function(name, mountPath) {    
+    new ComponentCreator().named(name).at(mountPath).create();
   })
 
 program.parse(process.argv);  
