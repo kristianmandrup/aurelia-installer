@@ -37,6 +37,20 @@ The component can also have dependencies to external modules and 3rd party libra
 Components are meant as a larger entities than elements, which are primitives, like molecule vs. atom.
 A component can contain other components and use elements! Each component lives in its own folder for clean separation.
 
+Please see [how to structure an aurelia application](http://ilikekillnerds.com/2015/10/how-to-structure-an-aurelia-application/)
+
+Components can be globalised for use as a custom element, by calling `globalResources` in `resources/index.js`  
+
+```js
+export function configure(config) {
+  config.globalResources('markdown/markdown', './disco-light', .. );
+}
+```
+
+See [making custom element global](http://drdwilcox.blogspot.dk/2015/12/aurelia-making-custom-element-global.html)
+
+You can then use: `.feature('components');` from your `main.js` file to continue configuration in your `components/index.js` file. 
+
 ### Mounting components
 
 You can mount components directly into your application on a given mount path which often coresponds closely to a route.
