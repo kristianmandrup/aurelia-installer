@@ -24,8 +24,8 @@ This will install the component at:
 
 ```bash
 src/components/<%= name %>/
-  <%= name %>.html
-  <%= name %>.ts
+  index.html
+  index.<%= ext %>
   package.json
   vendor-bundles.js
   Readme.md

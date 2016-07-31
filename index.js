@@ -14,6 +14,8 @@ const InstallTypings = require('./lib/commands/typings');
 const util = require('util');
 const download = require('download-git-repo');
 
+let questions = {};
+
 program
   .version('0.0.1')
 
@@ -101,11 +103,21 @@ program
     new VendorBundler().bundle(name);
   })
 
+questions.create = [{
+  name: 'hasView',
+  message: 'Is it a view component?',
+  type: 'confirm',
+  default: true
+}];
+
 program
   .command('create <name> [mountPath]')
   .description('Create a component within the application')
-  .action(function(name, mountPath) {    
-    new ComponentCreator().named(name).at(mountPath).create();
+  .action(function(name, mountPath) {
+    // TODO: ask if it should be "no view"
+    inquirer(questions.create, (answers) => {
+      new ComponentCreator().named(name).view(answers.hasView).at(mountPath).create();
+    });
   })
 
 program.parse(process.argv);  
