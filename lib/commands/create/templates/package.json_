@@ -1,0 +1,23 @@
+{
+  "name": "<%= name %>",
+  "version": "0.0.1",
+  <%_ if (account) _%>
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/<%= account %>/<%= repoName %>.git"
+  },  
+  <%_ } _%>  
+  <%_ if (author) _%>  
+  "authors": [
+    "<%= author %>"    
+  ],
+  <%_ } _%>    
+  "description": "<%= description || name %>",
+  "keywords": [
+    "aurelia-component"
+    <%= keywords.join(',\n') %>
+  ],
+  "dependencies": {
+    // add component npm dependencies here
+  }
+}
