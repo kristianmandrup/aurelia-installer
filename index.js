@@ -9,6 +9,7 @@ const ComponentBundler = require('./lib/commands/bundle');
 const ComponentCreator = require('./lib/commands/create');
 const VendorBundler = require('./lib/commands/vendor');
 const InitProject = require('./lib/commands/init');
+const InstallTypings = require('./lib/commands/typings');
 
 const util = require('util');
 const download = require('download-git-repo');
@@ -58,6 +59,20 @@ program
       console.log(name, 'plugin installed');
     });
   })
+
+program
+  .command('typings <name>')
+  .description('Install a typings definition by name')
+  .action(function(name) {
+    new InstallTypings(name).install((err) => {
+      if (err) {
+        console.error(err);
+        process.exit(1);
+      }
+      console.log(name, 'typings installed');
+    });
+  })
+
 
 program
   .command('uninstall <name> [mountPath]')

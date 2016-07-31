@@ -117,23 +117,36 @@ TODO: remove bundled component dependencies...
 
 `ai vendor bootstrap`
 
-Will lookup the specified vendor library in `lib-registry.json` by name.
+Will lookup the specified vendor library in `registry/vendor-libs.json` by name.
 If an entry is found, will add this to vendor bundle entries in `aurelia.json` 
 
 ## Install plugin
-
-*WIP experimental*
 
 `ai plugin validation`
 
 Supported plugins: All the official and 3rd party plugins listed [here](http://blog.durandal.io/2015/11/17/aurelia-beta-week-day-2-plugins/) 
 
-Simple plugins can be configured directly via `plugin-registry.json`.
+Simple plugins can be configured directly via `registry/plugins.json`.
 
 There is support for more customized install procedures, such as for `auth` and `materialize` plugins via custom installer classes. 
 Please provide configuration your own plugins ;)
 
 Currently the default installation procedure is to use `jspm`. With the new `init` command under development, you will soon be able to set project install preferences.
+
+## Install typings
+
+*WIP*
+
+Install TypeScript `d.ts` file(s) for a vendor library.
+
+`ai typings nprogress`
+
+Uses `registry/typings.json` for custom definitions which can't be installed for Aurelia by name via standard [typings](https://github.com/typings/typings).
+By default issues this command: `typings install <name> --save`
+
+Typings example: `typings install nprogress --save`
+
+Note: This command will abort unless you have `typescript` defined as your transpiler in `aurelia.json` 
 
 ## Init project settings
 
@@ -143,7 +156,7 @@ We will soon add the ability to set project (install/config) preferences, which 
 
 #### Contribute vendor bundle specs
 
-Please update the `lib-registry.json` with bundling specifications for your favourite libs ;)
+Please update the `registry/vendor-libs.json` with bundling specifications for your favourite libs ;)
 
 ## Development
 
