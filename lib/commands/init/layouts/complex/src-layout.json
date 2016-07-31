@@ -1,0 +1,12 @@
+{
+  "apps": {
+    "guest": "layout:app",
+    "user": "layout:app",
+    "admin": "layout:app"
+  },
+  "common": {
+    "services": {},
+    "components": {},
+    "assets": "layout:assets"
+  }
+}

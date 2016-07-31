@@ -1,0 +1,19 @@
+{
+  "assets": {
+    "fonts": {},
+    "images": {},
+    "styles": {}
+  },
+  "resources": {
+    "attributes": {},
+    "elements": {},
+    "converters": {}
+  },
+  "app": {
+    "assets": "layout:assets",
+    "components": {},
+    "routes": {},
+    "resources": "layout:resources",
+    "services": {}
+  }  
+}
