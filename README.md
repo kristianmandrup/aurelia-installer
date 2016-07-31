@@ -77,14 +77,14 @@ This registry is used to intelligently *uninstall* a component by name.
 *Unmounted component example*
 
 Unmounted components are by default installed under `src/components`. 
-This is sensible for general purpose components such as 'large-modal; that are reused in multiple parts of your app.
+This is sensible for general purpose components such as 'large-modal` that are reused in multiple parts of your app.
 
 ```bash
 src/components/large-modal
-  large-modal.html
-  large-modal.ts
+  index.html
+  index.js
   package.json
-  vendor-bundles.js
+  bundles.js
 ```
 
 *Mounted under contacts*
@@ -93,10 +93,10 @@ Components specific to a particular domain should be mounted in that domain, suc
 
 ```bash
 src/contacts/contact-detail
-  contact-detail.html
-  contact-detail.ts
+  index.html
+  index.js
   package.json
-  vendor-bundles.js
+  bundles.js
 ```
 
 ### Install component from repo
@@ -120,10 +120,11 @@ This will merge the component dependencies with app dependencies in a crafty man
 ### Use it
 
 Currently awaiting a [PR](https://github.com/aurelia/router/pull/381) for full route loading customization! 
-
 You can also use it as follows:
 
 `{ route: 'contacts',  moduleId: 'components/contact-detail/contact-detail', name: 'contacts' }`
+
+Or by using custom routing navigation strategies...
 
 Ready to rock!
 
