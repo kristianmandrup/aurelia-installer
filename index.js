@@ -37,6 +37,8 @@ program
   })
 
 program
+  // TODO: introduce <componentType> so as to allow:
+  // ai install page kristianmandrup/my-page 
   .command('install <repo> [mountPath]')
   .description('Install a component from a git repo')
   .action(function(repo) {

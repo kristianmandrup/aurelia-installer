@@ -46,9 +46,12 @@ src/
           index.js
           index.html
 
-          details/
+          /details
             index.js
             index.html
+
+          /assets
+            contact.png            
 
           service.js          
           store.js
@@ -112,6 +115,9 @@ An element is a reusable page fragments.
 
 Any component can have its own repo. A component can also be a hierarchy of sub-components with their own repo.
 To manage dependencies to external libs, each component can have a `vendor-bundles.json` file. 
+
+Note also that certain components may have their own assets in an `/assets` folder. 
+Include the assets (using appropriately installed Webpack loader) directly from your `.js` file. 
 
 ### Pages
 
