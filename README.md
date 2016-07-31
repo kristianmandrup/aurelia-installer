@@ -14,9 +14,11 @@ All automated for your pleasure! Viva Aurelia :)
 
 A component is an application entity. Typically it consists of a View model which has a View associated.
 The component can also have dependencies to external modules and 3rd party libraries.
-Components by convention live in `src/components` with a folder for each component 
+Components by convention live in `src/components` with a folder for each component
 
 The `aurelia-installer` can manage the *creation*, *installation* and application *bundling* of such components!
+
+Note: You will soon be able to mount a component on a specific path in `/src`. The installer will maintain a component registry so that it is easy later to uninstall or update the component by name.
 
 ### Sample component
 
