@@ -8,12 +8,30 @@ const InstallPlugin = require('./lib/commands/plugin');
 const ComponentBundler = require('./lib/commands/bundle'); 
 const ComponentCreator = require('./lib/commands/create');
 const VendorBundler = require('./lib/commands/vendor');
+const InitProject = require('./lib/commands/init');
 
 const util = require('util');
 const download = require('download-git-repo');
 
 program
   .version('0.0.1')
+
+program
+  .command('init')
+  .description('Initialize project with settings for installer')
+  .action(function() {
+    // TODO:
+    // try to detect settings
+    // command prompt to confirm or say prefs
+
+    new InitProject(settings).initialize((err) => {
+      if (err) {
+        console.error(err);
+        process.exit(1);
+      }
+      console.log(repo, 'initialized');
+    });
+  })
 
 program
   .command('install <repo>')
@@ -27,7 +45,6 @@ program
       console.log(repo, 'installed');
     });
   })
-  .parse(process.argv);
 
 program
   .command('plugin <name>')
@@ -41,7 +58,6 @@ program
       console.log(name, 'plugin installed');
     });
   })
-  .parse(process.argv);
 
 program
   .command('uninstall <name>')
@@ -55,7 +71,6 @@ program
       console.log(name, 'uninstalled');
     });
   })
-  .parse(process.argv);
 
 program
   .command('bundle [name]')

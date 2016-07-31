@@ -15,5 +15,8 @@
   },
   "firebase": "aurelia-firebase",
   "leaflet": "aurelia-leaflet",
-  "materialize": "aurelia-materialize-bridge"
+  "materialize": "aurelia-materialize-bridge",
+  "property-injection": {
+    "npm": "aurelia-property-injection"
+  }
 }

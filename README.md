@@ -100,6 +100,14 @@ Simple plugins can be configured directly via `plugin-registry.json`.
 There is support for more customized install procedures, such as for `auth` and `materialize` plugins via custom installer classes. 
 Please provide configuration your own plugins ;)
 
+Currently the default installation procedure is to use `jspm`. With the new `init` command under development, you will soon be able to set project install preferences.
+
+## Init project settings
+
+*WIP*
+
+We will soon add the ability to set project (install/config) preferences, which will be saved as part of the `aurelia-project/aurelia.json` configuration file.
+
 #### Contribute vendor bundle specs
 
 Please update the `lib-registry.json` with bundling specifications for your favourite libs ;)
