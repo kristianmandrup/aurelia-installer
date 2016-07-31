@@ -1,38 +1,20 @@
 # Aurelia installer
 
-- Install and manage components
-- Installation Aurelia plugins
-- Configure vendor and 3rd party libraries
+The missing brother of [Aurelia CLI](https://github.com/aurelia/cli)
 
-All automated for your pleasure! Viva Aurelia :) 
+- Create, install and manage components as application entities
+- Automatically configure vendor and 3rd party libraries
+- Install Aurelia plugins by name
+
+All automated for your pleasure! 
 
 ## Install
 
 `npm i aurelia-installer -g`
 
-## Components
-
-A component is an application entity. Typically it consists of a View model which has a View associated.
-The component can also have dependencies to external modules and 3rd party libraries.
-Components by convention live in `src/components` with a folder for each component
-
-The `aurelia-installer` can manage the *creation*, *installation* and application *bundling* of such components!
-
-Note: You will soon be able to mount a component on a specific path in `/src`. The installer will maintain a component registry so that it is easy later to uninstall or update the component by name.
-
-### Sample component
-
-[contact-detail](https://github.com/kristianmandrup/contact-detail)
-
-```bash
-src/components/contact-detail
-  contact-detail.html
-  contact-detail.ts
-  package.json
-  vendor-bundles.js
-```
-
 ## Usage
+
+- `init` initialize your project for better `ai` experience (optional) 
 
 *Component*
 - `create` create a new component folder
@@ -41,10 +23,59 @@ src/components/contact-detail
 - use it!
 
 *Vendor library*
-- bundle it
+- `bundle` bundle a vendor library
 
 *Plugin*
-- install and configure it
+- `plugin` install and configure a plugin
+
+
+## Components
+
+A component is an application entity. Typically it consists of at least a *ViewModel* with an optional *View* associated.
+The component can also have dependencies to external modules and 3rd party libraries.
+
+Components are meant as a larger entities than elements, which are primitives, like molecule vs. atom.
+A component can contain other components and use elements! Each component lives in its own folder for clean separation.
+
+### Mounting components
+
+You can mount components directly into your application on a given mount path which often coresponds closely to a route.
+Unmounted components by convention live in `src/components`.
+
+### Component management
+
+`aurelia-installer` can manage the *creation*, *installation* and application *bundling* of such components!
+The installe keeps track of your components in `components.json`, a component registry.
+This registry is used to intelligently *uninstall* a component by name. 
+
+### Sample component
+
+[contact-detail](https://github.com/kristianmandrup/contact-detail) is a sample component
+
+*Unmounted component example*
+
+Unmounted components are by default installed under `src/components`. 
+This is sensible for general purpose components such as 'large-modal; that are reused in multiple parts of your app.
+
+```bash
+src/components/large-modal
+  large-modal.html
+  large-modal.ts
+  package.json
+  vendor-bundles.js
+```
+
+*Mounted under contacts*
+
+Components specific to a particular domain should be mounted in that domain, such as `contacts`
+
+```bash
+src/contacts/contact-detail
+  contact-detail.html
+  contact-detail.ts
+  package.json
+  vendor-bundles.js
+```
 
 ### Install component from repo
 
