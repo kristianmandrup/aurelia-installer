@@ -87,6 +87,8 @@ src/components/large-modal
   bundles.js
 ```
 
+We use the `index` convention to signify the main entry point of the component. 
+
 *Mounted under contacts*
 
 Components specific to a particular domain should be mounted in that domain, such as `contacts`

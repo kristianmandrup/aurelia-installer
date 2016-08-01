@@ -1,0 +1,9 @@
+{
+  "meteor": "aurelia-meteor",
+  "rollbar": "aurelia-rollbar",
+  "api": "aurelia-api",
+  "testing": "aurelia-testing",
+  "async": "aurelia-async",
+  "template-gen": "aurelia-generate",
+  "orm": "aurelia-orm",
+}
