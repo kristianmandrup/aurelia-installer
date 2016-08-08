@@ -1,6 +1,6 @@
 # App layout guidelines
 
-The Aurelia installer assumes the following app layout for large scale applications. 
+The Aurelia installer assumes the following app layout for large scale applications.
 This is inspired heavily by [best practices for aurelia application structure](http://patrickwalters.net/my-best-practices-for-aurelia-application-structure/)
 with the addition of multiple apps, like Stategy #4 in [Aurelia for real world applications](https://leanpub.com/aurelia-for-real-world-applications)
 
@@ -10,13 +10,13 @@ You can use the `ai init` command to customize this layout to suit your needs or
 src/
   apps/
 
-    /guest      
+    /guest
       /pages
         router.js
         /login
           index.js
           index.html
-          
+
       /services
         index.js // re-exports all
 

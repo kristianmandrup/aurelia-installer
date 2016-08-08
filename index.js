@@ -5,8 +5,10 @@ const program = require('commander');
 program
   .version('0.0.1')
 
-['bundle','create', 'init', 'install', 'library', 'plugin', 'typings', 'uninstall'].forEach(program => {
-  require('./program');
+const programs = ['app', 'bundle','create', 'init', 'install', 'library', 'plugin', 'typings', 'uninstall'];
+
+programs.forEach(prog => {
+  require(`./programs/${prog}`);
 })
 
 program.parse(process.argv);
