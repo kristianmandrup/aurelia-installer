@@ -8,6 +8,7 @@ program
     // TODO:
     // try to detect settings
     // command prompt to confirm or say prefs
+    let settings = {}
 
     new InitProject(settings).initialize((err) => {
       if (err) {
