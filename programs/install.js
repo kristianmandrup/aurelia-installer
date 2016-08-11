@@ -6,7 +6,7 @@ program
   // ai install page kristianmandrup/my-page 
   .command('install <repo> [mountPath]')
   .description('Install a component from a git repo')
-  .action(function(repo) {
+  .action(function(repo, mountPath) {
     new InstallFromGit().named(repo).at(mountPath).install((err) => {
       if (err) {
         console.error(err);
