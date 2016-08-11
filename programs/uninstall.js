@@ -1,4 +1,5 @@
-const UnInstall = require('./lib/commands/uninstall');
+const program = require('commander');
+const UnInstall = require('../lib/commands/uninstall');
 
 program
   .command('uninstall <name> [mountPath]')

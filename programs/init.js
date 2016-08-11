@@ -1,5 +1,5 @@
 const program = require('commander');
-const InitProject = require('./lib/commands/init');
+const InitProject = require('../lib/commands/init');
 
 program
   .command('init')

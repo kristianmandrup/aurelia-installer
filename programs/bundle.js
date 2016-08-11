@@ -1,5 +1,5 @@
 const program = require('commander');
-const ComponentBundler = require('./lib/commands/bundle');
+const ComponentBundler = require('../lib/commands/bundle');
 
 program
   .command('bundle [name]')

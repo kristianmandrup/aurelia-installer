@@ -1,5 +1,5 @@
 const program = require('commander');
-const InstallFromGit = require('./lib/commands/install');
+const InstallFromGit = require('../lib/commands/install');
 
 program
   // TODO: introduce <componentType> so as to allow:

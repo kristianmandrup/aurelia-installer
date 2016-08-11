@@ -1,5 +1,4 @@
 {
-  "animator-css": "aurelia-animator-css",
   "animator-velocity": "aurelia-animator-velocity",
   "fetch": "aurelia-fetch-client",
   "dialog": "aurelia-dialog",
@@ -48,7 +47,6 @@
   "css-modules-loader": "aurelia-css-modules-loader",
   "binding-functions": "aurelia-binding-functions",
   "materialize-css": "aurelia-materialize-css",
-  "rethinkdb": "aurelia-rethink-bindtable",
   "ace-editor": "aurelia-ace-editor",
   "typeahead": "aurelia-typeahead",
   "ui-framework": "aurelia-ui-framework",
@@ -58,6 +56,5 @@
   "google-maps": "aurelia-google-maps",
   "chart": "aurelia-chart",
   "froala-editor": "aurelia-froala",
-  // "tooltip": "aurelia-tooltip",
   "social-auth": "aurelia-authentication"  
 }

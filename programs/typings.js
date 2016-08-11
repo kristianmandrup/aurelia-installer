@@ -1,5 +1,5 @@
 const program = require('commander');
-const InstallTypings = require('./lib/commands/typings');
+const InstallTypings = require('../lib/commands/typings');
 
 program
   .command('typings <name>')

@@ -1,4 +1,5 @@
-const VendorLibraryBundler = require('./lib/commands/vendor');
+const program = require('commander');
+const VendorLibraryBundler = require('../lib/commands/vendor');
 
 program
   .command('library [name]')
