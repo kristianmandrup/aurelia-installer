@@ -5,5 +5,5 @@ program
   .command('create <name> [mountPath]')
   .description('Create a component within the application')
   .action(function(name, mountPath) {
-    new ComponentCreator().named(name).view(answers.hasView).at(mountPath).create();
+    new ComponentCreator().at(mountPath).named(name).create();
   })
