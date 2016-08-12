@@ -8,6 +8,8 @@ program
   .action(function(name, command, arg1, arg2) {
     // depending on command, use another class passing the app name
 
+    command = command ? command.toLowerCase() : 'layout';
+
     switch (command.toLowerCase()) {
       case 'switch':
         process.env.AURELIA_APP = arg1 || defaults.app;
