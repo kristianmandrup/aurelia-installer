@@ -1,22 +1,15 @@
 {
   "name": "<%= name %>",
-  "version": "0.0.1",
-  <% if (account) { %>
+  "version": "0.0.1",<% if (account) { %>
   "repository": {
     "type": "git",
     "url": "git://github.com/<%= account %>/<%= repoName %>.git"
-  },  
-  <% } %>  
-  <% if (author) { %>  
+  },<% } %><% if (author) { %>  
   "authors": [
     "<%= author %>"    
-  ],
-  <% } %>    
+  ],<% } %>    
   "description": "<%= description || name %>",
-  "keywords": [
-    "aurelia-component"
-    <%- JSON.stringify(keywords).replace(',', ',\n    ').replace('[', '').replace(']', '') %>
-  ],
+  "keywords": <%- JSON.stringify(keywords) %>,
   "dependencies": {
     // add component npm dependencies here
   }
