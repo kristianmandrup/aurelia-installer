@@ -25,15 +25,18 @@ All automated for your pleasure!
 
 *Vendor library*
 - `bundle` bundle a vendor library (TODO: also install typings if available!)
+- `bundle :list` list all registered vendor libs
 
 *Plugin*
 - `plugin` install and configure a plugin
+- `plugin :list` list all registered plugins
 
 *Typings*
 - `typings` install typings for a vendor lib
+- `typings :list` list all registered typings 
 
 Coming soon:
-- Create full app layout via `ai app`
+- Create full app layout via `ai app` (contributions welcome!)
 
 ## Init
 
