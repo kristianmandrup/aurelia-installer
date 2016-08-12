@@ -1,5 +1,6 @@
 const program = require('commander');
 const AppManager = require('../lib/commands/app');
+const AppLayout = require('../lib/commands/app/layout');
 const Installer = require('../lib/commands/install');
 
 program
@@ -15,6 +16,11 @@ program
         process.env.AURELIA_APP = arg1 || defaults.app;
       case 'install':
         new Installer().app(name).install(arg1);
+        break;
+      case 'layout':
+        let layouter = new AppLayout(name, 'simple');
+        layouter.makeLayout();
+        break;
       default:
         new AppManager().execute(name);    
     }    
