@@ -37,6 +37,15 @@ not interfere or disrupt what anyone else might be working on in the same applic
 
 The installer tries to incorporate best practices for managing Aurelia features, components and elements.
 
+## Init
+
+We recommend that you first run `ai init` to initialize your installer preferences.
+
+- Preferred package manager (webpack or systemjs)
+- Preferred dependency manager (npm or jspm)
+- Default Git account
+- ...
+
 ## Components
 
 A component is an application entity. Typically it consists of at least a *ViewModel* with an optional *View* associated.
@@ -74,6 +83,32 @@ This registry is used to intelligently *uninstall* a component by name.
 
 [contact-detail](https://github.com/kristianmandrup/contact-detail) is a sample component
 
+Sample *install.json*
+
+```json
+{
+  "bundles": [
+    "foundation"
+  ],
+  "dependencies": [
+    "jquery",
+    {
+      "name": "bootstrap",
+      "path": "../node_modules/bootstrap/dist",
+      "main": "js/bootstrap.min",
+      "deps": ["jquery"],
+      "exports": "$",
+      "resources": [
+        "css/bootstrap.css"
+      ]
+    }
+  ],
+  "typings": [
+    "nprogress"
+  ]
+}
+```
+
 *Unmounted component example*
 
 Unmounted components are by default installed under `src/components`. 
@@ -98,7 +133,7 @@ src/contacts/contact-detail
   index.html
   index.js
   package.json
-  bundles.js
+  install.json
 ```
 
 ### Install component from repo
@@ -113,22 +148,14 @@ Repo formats available see [here](https://www.npmjs.com/package/download-git-rep
 - GitLab: gitlab:owner/name
 - Bitbucket: bitbucket:owner/name
 
+If you have run `ai init` and set a default git account, it will use that so you can just write the name of your repo! 
+
 ### Bundle component(s)
 
 `ai bundle` (all) or `ai bundle contact-detail`
 
 This will merge the component dependencies with app dependencies in a crafty manner, almost like if you had done it by hand.
-
-### Use it
-
-Currently awaiting a [PR](https://github.com/aurelia/router/pull/381) for full route loading customization! 
-You can also use it as follows:
-
-`{ route: 'contacts',  moduleId: 'components/contact-detail/contact-detail', name: 'contacts' }`
-
-Or by using custom routing navigation strategies...
-
-Ready to rock!
+It will also install any typings defined.
 
 ### Uninstall
 
