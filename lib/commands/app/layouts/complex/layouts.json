@@ -15,5 +15,10 @@
     "routes": {},
     "resources": "layout:resources",
     "services": {}
+  },  
+  "guest-app": {
+    "assets": "layout:assets",
+    "routes": {},
+    "services": {}
   }  
 }

@@ -35,8 +35,11 @@ All automated for your pleasure!
 - `typings` install typings for a vendor lib
 - `typings :list` list all registered typings 
 
-Coming soon:
-- Create full app layout via `ai app` (contributions welcome!)
+*App layout*
+- Configure app preferences via `ai app`
+- Create simple/complex app layouts based on app preferences 
+
+*Coming soon* Installer commands will effect only in current/designated app when you have multiple sub-apps!
 
 ## Init
 

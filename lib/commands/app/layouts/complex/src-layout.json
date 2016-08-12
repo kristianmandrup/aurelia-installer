@@ -1,6 +1,6 @@
 {
   "apps": {
-    "guest": "layout:app",
+    "guest": "layout:guest-app",
     "user": "layout:app",
     "admin": "layout:app"
   },
