@@ -1,5 +1,7 @@
 const program = require('commander');
 const InstallFromGit = require('../lib/commands/install');
+const log = require('../lib/commands/log');
+const c = log.c;
 
 program
   // TODO: introduce <componentType> so as to allow:
@@ -12,6 +14,6 @@ program
         console.error(err);
         process.exit(1);
       }
-      console.log(repo, 'installed');
+      log.success(repo, 'installed');
     });
   })

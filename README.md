@@ -18,24 +18,22 @@ All automated for your pleasure!
 
 *Component*
 - `create` create a new component folder
-- `install` install from git repo
+- `install` install/mount from git repo
+- `uninstall` install/unmount
 - `bundle` bundle with app
 - use it!
 
 *Vendor library*
-- `bundle` bundle a vendor library
+- `bundle` bundle a vendor library (TODO: also install typings if available!)
 
 *Plugin*
 - `plugin` install and configure a plugin
 
+*Typings*
+- `typings` install typings for a vendor lib
 
-## Features
-
-"Features in Aurelia allows you to specify folders which are home to features. A feature might be a part of your app that is being worked on by another team or
-a developer within your own team. It allows you to encapsulate and organise your code better as to
-not interfere or disrupt what anyone else might be working on in the same application." - Aurelia for real world applications (book)
-
-The installer tries to incorporate best practices for managing Aurelia features, components and elements.
+Coming soon:
+- Create full app layout via `ai app`
 
 ## Init
 
@@ -44,7 +42,15 @@ We recommend that you first run `ai init` to initialize your installer preferenc
 - Preferred package manager (webpack or systemjs)
 - Preferred dependency manager (npm or jspm)
 - Default Git account
-- ...
+- Default components path
+
+## Features
+
+"Features in Aurelia allows you to specify folders which are home to features. A feature might be a part of your app that is being worked on by another team or
+a developer within your own team. It allows you to encapsulate and organise your code better as to
+not interfere or disrupt what anyone else might be working on in the same application." - Aurelia for real world applications (book)
+
+The installer tries to incorporate best practices for managing Aurelia features, components and elements.
 
 ## Components
 
@@ -148,7 +154,12 @@ Repo formats available see [here](https://www.npmjs.com/package/download-git-rep
 - GitLab: gitlab:owner/name
 - Bitbucket: bitbucket:owner/name
 
-If you have run `ai init` and set a default git account, it will use that so you can just write the name of your repo! 
+If you have run `ai init` and set a default git account, it will use that.
+This means you can just write the name of your component repo to install it! 
+
+`ai install contact-detail`
+
+After installing a component you need to bundle it with the app.
 
 ### Bundle component(s)
 
@@ -202,9 +213,7 @@ Note: This command will abort unless you have `typescript` defined as your trans
 
 ## Init project settings
 
-*WIP*
-
-We will soon add the ability to set project (install/config) preferences, which will be saved as part of the `aurelia-project/aurelia.json` configuration file.
+Installer preferences, which will be saved in the `installer.json` configuration file.
 
 #### Contribute vendor bundle specs
 
