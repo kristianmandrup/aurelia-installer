@@ -1,5 +1,6 @@
 {
-  "nprogress": "npm~retyped-nprogress-tsd-ambient",
+  "nprogress": "dt~nprogress",
   "dialog": "github:aurelia/dialog",
-  "sortable": "dt~sortablejs"
+  "sortable": "dt~sortablejs",
+  "sortablejs": "dt~sortablejs"
 }
