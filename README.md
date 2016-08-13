@@ -50,6 +50,21 @@ We recommend that you first run `ai init` to initialize your installer preferenc
 - Default Git account
 - Default components path
 
+## App config and layouts
+
+### App config
+
+Define your app layout preferences:
+
+
+
+### Generating app layouts
+
+`app src` - generate main app src layout (multi, simple or pwalters style)
+`app layout` - create full app layout for app config
+`app layout guest` - create app layout for `guest` app using `guest` layout spec or `default` app layout if no guest
+`app layout login guest` - create app layout for `login` app using `guest` app layout spec
+
 ## Features
 
 "Features in Aurelia allows you to specify folders which are home to features. A feature might be a part of your app that is being worked on by another team or

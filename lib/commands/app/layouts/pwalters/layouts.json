@@ -9,7 +9,7 @@
     "elements": {},
     "converters": {}
   },
-  "app": {
+  "route": {
     "assets": "layout:assets",
     "routes": {},
     "resources": "layout:resources",

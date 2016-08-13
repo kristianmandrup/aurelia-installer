@@ -1,0 +1,9 @@
+{
+  ".": "layout:app",
+  "services": {},
+  "models": {},
+  "routes": {},
+  "assets": "layout:assets",
+  "resources": "layout:resources",
+  "components": {}
+}

@@ -14,11 +14,13 @@
     "components": {},
     "routes": {},
     "resources": "layout:resources",
-    "services": {}
+    "services": {},
+    "models": {}
   },  
-  "guest-app": {
+  "guest": {
     "assets": "layout:assets",
     "routes": {},
-    "services": {}
+    "services": {},
+    "models": {}
   }  
 }
