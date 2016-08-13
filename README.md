@@ -20,12 +20,14 @@ All automated for your pleasure!
 - `create` create a new component folder
 - `install` install/mount from git repo
 - `uninstall` install/unmount
-- `bundle` bundle with app
+- `bundle` bundle component with app
+- `unbundle` unbundle componen from app
 - use it!
 
 *Vendor library*
 - `bundle` bundle a vendor library (TODO: also install typings if available!)
 - `bundle :list` list all registered vendor libs
+- `unbundle` unbundle a vendor lib (TODO)
 
 *Plugin*
 - `plugin` install and configure a plugin
@@ -209,7 +211,7 @@ It will also install any typings defined.
 
 Removes the component from your app! 
 
-TODO: remove bundled component dependencies and typings...
+TODO: also remove bundled component dependencies and typings...
 
 ## Bundle vendor library
 
@@ -237,7 +239,7 @@ Currently the default installation procedure is to use `jspm`. With the new `ini
 
 Please update `registry/plugins.json` with your favorite auelia plugins.
 
-## Yypings
+## Typings
 
 Install TypeScript `d.ts` file(s) for a vendor library.
 
