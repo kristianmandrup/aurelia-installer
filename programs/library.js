@@ -1,6 +1,6 @@
 const program = require('commander');
-const VendorLibraryBundler = require('../lib/commands/vendor');
-const VendorLibList = require('../lib/commands/vendor/list');
+const VendorLibraryBundler = require('../lib/commands/library');
+const VendorLibList = require('../lib/commands/library/list');
 
 program
   .command('library <name> [option]')
