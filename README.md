@@ -209,9 +209,7 @@ It will also install any typings defined.
 
 `ai uninstall contact-detail`
 
-Removes the component from your app! 
-
-TODO: also remove bundled component dependencies and typings...
+Removes the component from your app! Also (optionally) removes bundled component dependencies.
 
 ## Bundle vendor library
 
