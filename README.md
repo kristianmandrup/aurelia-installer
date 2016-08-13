@@ -151,6 +151,8 @@ A component should have an *install.json* which tells the installer how to insta
 }
 ```
 
+Note: You can also add a `"prepend"` section, for dependencies to be prepended to the bundle.
+
 *Unmounted component example*
  
 General purpose components such as 'large-modal` that are reused in multiple parts of your app remain unmounted

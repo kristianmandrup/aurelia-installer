@@ -1,5 +1,5 @@
 const program = require('commander');
-const ComponentUnBundler = require('../lib/commands/bundle/unbundle');
+const ComponentUnBundler = require('../lib/commands/unbundle');
 
 program
   .command('unbundle <name>')
