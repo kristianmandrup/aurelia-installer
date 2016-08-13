@@ -2,11 +2,14 @@
 
 The missing brother of [Aurelia CLI](https://github.com/aurelia/cli)
 
-- Create, install and manage components as application entities
+- Create and manage sub applications with different src layouts
+- Create, install, manage and reuse/share components as real application entities
 - Automatically configure vendor and 3rd party libraries
+- Automatically install Typings for Typescript
 - Install Aurelia plugins by name
+- and more...
 
-All automated for your pleasure! 
+All automated and provided as a CLI for your Aurelia workflows!  
 
 ## Install
 
@@ -16,30 +19,30 @@ All automated for your pleasure!
 
 - `init` initialize your project for better `ai` experience (optional) 
 
-*Component*
-- `create` create a new component folder
-- `install` install/mount from git repo
-- `uninstall` install/unmount
-- `bundle` bundle component with app
-- `unbundle` unbundle componen from app
-- use it!
-
-*Vendor library*
-- `bundle` bundle a vendor library (TODO: also install typings if available!)
-- `bundle :list` list all registered vendor libs
-- `unbundle` unbundle a vendor lib (TODO)
+*App layout*
+- `ai app` create main app src layout  
+- `ai app layout <name>` add additional app with own src layout 
+- `ai app switch <name>` switch to working on a different app
 
 *Plugin*
-- `plugin` install and configure a plugin
+- `plugin <name>` install and configure a plugin
 - `plugin :list` list all registered plugins
 
-*Typings*
-- `typings` install typings for a vendor lib
-- `typings :list` list all registered typings 
+*Component*
+- `create <name>` create a new component folder
+- `install <name>` install/mount from git repo
+- `uninstall <name>` install/unmount
+- `bundle [name]` bundle component dependencies with app
+- `unbundle <name>` unbundle component dependencies from app
 
-*App layout*
-- `ai app` - create main app src layout  
-- `ai app layout` - add additional app with own src layout 
+*Vendor library*
+- `library <name>` bundle a vendor library (with typings of same name if available)
+- `library :list` list all registered vendor libs
+- `library <name> :unbundle` unbundle a vendor lib
+
+*Typings*
+- `typings <name>` install typings for a vendor lib
+- `typings :list` list all registered typings 
 
 *Coming soon* Installer commands will effect only in current/designated app when you have multiple sub-apps!
 
@@ -54,31 +57,22 @@ We recommend that you first run `ai init` to initialize your installer preferenc
 
 ## App config and layouts
 
-You can install an app layout:
-- `multi`
-- `advanced`
-- `simple`
-
-Note: Feel free to contribute your own favorite app layouts!
-
-### App config
-
 `ai app`
 
-Lets you define app layout preferences:
-- src layout
-- default app layout
-
-- generates main app `/src` layout (`multi`, `simple` or `advanced`)
+Define app layout preferences:
+- select src layout (`multi`, `simple` or `advanced`)
+- select default app layout
+- generates main app src layout (in `/src` folder)
 
 ### Generating app layouts
 
 - `app layout <name> <laout name>` - add an app with a src layout
 
 Examples:
-
 - `app layout guest` - create default app layout for `guest` app
 - `app layout login simple` - create `simple` app layout for `login`
+
+Please contribute your own favorite app layouts!
 
 ### Select app to work on
 
@@ -91,15 +85,19 @@ This will effect where components are created, mounted and unmounted
 
 ## Components
 
-A component is an application entity. Typically it consists of at least a *ViewModel* with an optional *View* associated.
+A `component` is an application entity. Typically it consists of at least a *ViewModel* with an optional *View* associated.
 The component can also have dependencies to external modules and 3rd party libraries.
 
-Components are meant as a larger entities than elements, which are primitives, like molecule vs. atom.
-A component can contain other components and use elements! Each component lives in its own folder for clean separation.
+Components are meant as a larger entities than `elements`, which are primitives, like molecule vs. atom.
+A component can contain other components and elements! Each component lives in its own folder for clean separation.
+
+Components are designed to make it trivial to share and reuse common application functionality across projects 
+or within the Aurelia community. No more fudging around with complex configuration. The component is made ready to go!
+Components are the modular keystones for Aurelia apps! 
 
 Please see [how to structure an aurelia application](http://ilikekillnerds.com/2015/10/how-to-structure-an-aurelia-application/)
 
-Components can be globalised for use as a custom element, by calling `globalResources` in your features `index.js`  
+Components can be globalised for use as a custom element, by using `globalResources` via features.  
 
 ```js
 export function configure(config) {
@@ -109,24 +107,25 @@ export function configure(config) {
 
 See [making custom element global](http://drdwilcox.blogspot.dk/2015/12/aurelia-making-custom-element-global.html)
 
-You can then use: `.feature('components');` from your `main.js` file to continue configuration in your `components/index.js` file. 
-
 ### Mounting components
 
-You can mount components directly into your application on a given mount path which often coresponds closely to a route.
+You should mount application components directly into your application on a given mount path which coresponds to a route (section of your app).
 Unmounted components by convention live in `src/components`.
 
 ### Component management
 
-`aurelia-installer` can manage the *creation*, *installation* and application *bundling* of such components!
-The installe keeps track of your components in `installer.json`.
-This registry is used to later *uninstall* a component by name if needed. 
+`aurelia-installer` can manage the *creation*, *installation* and application *bundling* of components!
+The installer keeps track of your components in `installer.json`. This registry is also used to later *uninstall* 
+or find the location of a component by name if needed. 
 
 ### Sample component
 
 [contact-detail](https://github.com/kristianmandrup/contact-detail) is a sample component
 
-Sample *install.json*
+A component should have an *install.json* which tells the installer how to install its dependencies:
+- named `bundles` (ie. pre-registered dependencies)
+- `dependencies` configs for 3rd party libraries
+- `typings` for 3rd party libraries
 
 ```json
 {
@@ -153,9 +152,9 @@ Sample *install.json*
 ```
 
 *Unmounted component example*
-
-Unmounted components are by default installed under `src/components`. 
-This is sensible for general purpose components such as 'large-modal` that are reused in multiple parts of your app.
+ 
+General purpose components such as 'large-modal` that are reused in multiple parts of your app remain unmounted
+and live in `src/components`.
 
 ```bash
 src/components/large-modal
@@ -181,20 +180,20 @@ src/contacts/contact-detail
 
 ### Install component from repo
 
-Downloads a component from a git repo and copies it to your project
+Download a component from a git repo directly into your application mount path
 
-`ai install kristianmandrup/contact-detail`
+`ai install kristianmandrup/contact-detail contacts`
 
 Repo formats available see [here](https://www.npmjs.com/package/download-git-repo)
 
-- GitHub: github:owner/name or simply owner/name
-- GitLab: gitlab:owner/name
-- Bitbucket: bitbucket:owner/name
+- GitHub: `github:owner/name` or simply `owner/name`
+- GitLab: `gitlab:owner/name`
+- Bitbucket: `bitbucket:owner/name`
 
-If you have run `ai init` and set a default git account, it will use that.
+If you have run `ai init` and set a default git account, the installer will assume this account by default.
 This means you can just write the name of your component repo to install it! 
 
-`ai install contact-detail`
+`ai install contact-detail` - MAGIC!
 
 After installing a component you need to bundle it with the app.
 
@@ -202,20 +201,22 @@ After installing a component you need to bundle it with the app.
 
 `ai bundle` (all) or `ai bundle contact-detail`
 
-This will merge the component dependencies with app dependencies in a crafty manner, almost like if you had done it by hand.
-It will also install any typings defined.
+This will merge the component dependencies with app dependencies in a crafty manner!
+It will also install any typings required for TypeScript.
 
 ### Uninstall
 
 `ai uninstall contact-detail`
 
-Removes the component from your app! Also (optionally) removes bundled component dependencies.
+Removes the component from your app! 
+
+Note: You can then `unbundle` component dependencies if needed.
 
 ## Bundle vendor library
 
-`ai vendor :list` - to list registered vendor bundles
+`ai library :list` - to list registered vendor bundles
 
-`ai vendor bootstrap`
+`ai library bootstrap` - install bootstrap library
 
 Will lookup the specified vendor library in `registry/vendor-libs.json` by name.
 If an entry is found, will add this to vendor bundle entries in `aurelia.json`
@@ -230,10 +231,8 @@ Please update `registry/vendor-libs.json` with your favorite vendor library bund
 
 Supported plugins: All the official and 3rd party plugins listed [here](http://blog.durandal.io/2015/11/17/aurelia-beta-week-day-2-plugins/) 
 
-There is support for more customized install procedures, such as for `auth` and `materialize` plugins via custom installer classes. 
-Please provide configuration your own plugins ;)
-
-Currently the default installation procedure is to use `jspm`. With the new `init` command under development, you will soon be able to set project install preferences.
+There is also some support for more customized install procedures, such as for `auth` and `materialize` plugins via custom installer classes. 
+Please provide configurations for your own plugins ;)
 
 Please update `registry/plugins.json` with your favorite auelia plugins.
 
@@ -246,13 +245,13 @@ Install TypeScript `d.ts` file(s) for a vendor library.
 `ai typings nprogress` - install typings for nprogress
 
 Uses `registry/typings.json` for custom definitions which can't be installed for Aurelia by name via standard [typings](https://github.com/typings/typings).
-By default issues this command: `typings install <name> --global`
+If no typings install is registered, it will by default try to install from [DefinitelyTyped](http://definitelytyped.org/) repo: 
 
-Typings example: `typings install nprogress --global`
+`typings install dt~<name> --global` such as `typings install dt~bootstrap --global`
 
 Note: This command will abort unless you have `typescript` defined as your transpiler in `aurelia.json` 
 
-Please update the `registry/typings.json` with more typings download commands ;)
+Please update the `registry/typings.json` with more typings install locations ;)
 
 ## Development
 
