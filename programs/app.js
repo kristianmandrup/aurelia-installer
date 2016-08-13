@@ -13,19 +13,15 @@ program
 
   .command('app [command] [name] [layout]')
   .description('Operate on an app')
-  .action(function(command, name, arg1, arg2) {
+  .action(function(command, name, layout) {
     // depending on command, use another class passing the app name
-
-    command = command ? command.toLowerCase() : 'config';
 
     switch (command.toLowerCase()) {
       case 'switch':
         return new Registry().write({currentApp: name});
       case 'layout':
-        return new AppLayout(name, layout).generate();      
-      case 'config':
-        return new AppManager().execute(name);    
+        return new AppLayout(name, layout).generate();                  
       default:
-        log.error('Unknown app command, use either: switch, layout or config');
+        return new AppManager().execute(name);
     }    
   })

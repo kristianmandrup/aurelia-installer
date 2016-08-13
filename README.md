@@ -36,42 +36,56 @@ All automated for your pleasure!
 - `typings :list` list all registered typings 
 
 *App layout*
-- Configure app preferences via `ai app`
-- Create simple/complex app layouts based on app preferences 
+- `ai app` - create main app src layout  
+- `ai app layout` - add additional app with own src layout 
 
 *Coming soon* Installer commands will effect only in current/designated app when you have multiple sub-apps!
 
 ## Init
 
-We recommend that you first run `ai init` to initialize your installer preferences.
+We recommend that you first run `ai init` to initialize your installer preferences (stored in `installer.json`).
 
-- Preferred package manager (webpack or systemjs)
-- Preferred dependency manager (npm or jspm)
+- App bundle manager (webpack or systemjs)
+- Dependency module manager (npm or jspm)
 - Default Git account
 - Default components path
 
 ## App config and layouts
 
+You can install an app layout:
+- `multi`
+- `advanced`
+- `simple`
+
+Note: Feel free to contribute your own favorite app layouts!
+
 ### App config
 
-Define your app layout preferences:
+`ai app`
 
+Lets you define app layout preferences:
+- src layout
+- default app layout
 
+- generates main app `/src` layout (`multi`, `simple` or `advanced`)
 
 ### Generating app layouts
 
-`app src` - generate main app src layout (multi, simple or pwalters style)
-`app layout` - create full app layout for app config
-`app layout guest` - create app layout for `guest` app using `guest` layout spec or `default` app layout if no guest
-`app layout login guest` - create app layout for `login` app using `guest` app layout spec
+- `app layout <name> <laout name>` - add an app with a src layout
 
-## Features
+Examples:
 
-"Features in Aurelia allows you to specify folders which are home to features. A feature might be a part of your app that is being worked on by another team or
-a developer within your own team. It allows you to encapsulate and organise your code better as to
-not interfere or disrupt what anyone else might be working on in the same application." - Aurelia for real world applications (book)
+- `app layout guest` - create default app layout for `guest` app
+- `app layout login simple` - create `simple` app layout for `login`
 
-The installer tries to incorporate best practices for managing Aurelia features, components and elements.
+### Select app to work on
+
+Switch which application you are working on:
+
+- `app switch <name>` - switch to work with selected app
+- `app switch :root` - switch to src root
+
+This will effect where components are created, mounted and unmounted   
 
 ## Components
 
@@ -83,7 +97,7 @@ A component can contain other components and use elements! Each component lives 
 
 Please see [how to structure an aurelia application](http://ilikekillnerds.com/2015/10/how-to-structure-an-aurelia-application/)
 
-Components can be globalised for use as a custom element, by calling `globalResources` in `resources/index.js`  
+Components can be globalised for use as a custom element, by calling `globalResources` in your features `index.js`  
 
 ```js
 export function configure(config) {
@@ -103,8 +117,8 @@ Unmounted components by convention live in `src/components`.
 ### Component management
 
 `aurelia-installer` can manage the *creation*, *installation* and application *bundling* of such components!
-The installe keeps track of your components in `components.json`, a component registry.
-This registry is used to intelligently *uninstall* a component by name. 
+The installe keeps track of your components in `installer.json`.
+This registry is used to later *uninstall* a component by name if needed. 
 
 ### Sample component
 
@@ -146,7 +160,7 @@ src/components/large-modal
   index.html
   index.js
   package.json
-  bundles.js
+  install.json
 ```
 
 We use the `index` convention to signify the main entry point of the component. 
@@ -195,50 +209,50 @@ It will also install any typings defined.
 
 Removes the component from your app! 
 
-TODO: remove bundled component dependencies...
+TODO: remove bundled component dependencies and typings...
 
 ## Bundle vendor library
+
+`ai vendor :list` - to list registered vendor bundles
 
 `ai vendor bootstrap`
 
 Will lookup the specified vendor library in `registry/vendor-libs.json` by name.
-If an entry is found, will add this to vendor bundle entries in `aurelia.json` 
+If an entry is found, will add this to vendor bundle entries in `aurelia.json`
+
+Please update `registry/vendor-libs.json` with your favorite vendor library bundle specs. 
 
 ## Install plugin
+
+`ai plugin :list` - to list registered plugins
 
 `ai plugin validation`
 
 Supported plugins: All the official and 3rd party plugins listed [here](http://blog.durandal.io/2015/11/17/aurelia-beta-week-day-2-plugins/) 
-
-Simple plugins can be configured directly via `registry/plugins.json`.
 
 There is support for more customized install procedures, such as for `auth` and `materialize` plugins via custom installer classes. 
 Please provide configuration your own plugins ;)
 
 Currently the default installation procedure is to use `jspm`. With the new `init` command under development, you will soon be able to set project install preferences.
 
-## Install typings
+Please update `registry/plugins.json` with your favorite auelia plugins.
 
-*WIP*
+## Yypings
 
 Install TypeScript `d.ts` file(s) for a vendor library.
 
-`ai typings nprogress`
+`ai typings :list` - list registered typing installs
+
+`ai typings nprogress` - install typings for nprogress
 
 Uses `registry/typings.json` for custom definitions which can't be installed for Aurelia by name via standard [typings](https://github.com/typings/typings).
-By default issues this command: `typings install <name> --save`
+By default issues this command: `typings install <name> --global`
 
-Typings example: `typings install nprogress --save`
+Typings example: `typings install nprogress --global`
 
 Note: This command will abort unless you have `typescript` defined as your transpiler in `aurelia.json` 
 
-## Init project settings
-
-Installer preferences, which will be saved in the `installer.json` configuration file.
-
-#### Contribute vendor bundle specs
-
-Please update the `registry/vendor-libs.json` with bundling specifications for your favourite libs ;)
+Please update the `registry/typings.json` with more typings download commands ;)
 
 ## Development
 
