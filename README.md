@@ -255,6 +255,22 @@ Note: This command will abort unless you have `typescript` defined as your trans
 
 Please update the `registry/typings.json` with more typings install locations ;)
 
+## Coming soon
+
+Planned features coming soon...
+
+### Dependency check/management
+
+Many components will share a subset of dependencies while depending on unique libs for their own particular behavior.
+Imagine a set of components all using bootstrap, but with different behavior, perhaps using 
+different jquery plugins but sharing dependency on jquery etc. The developer should not be left to sort out and 
+maintain this dependency hell! Component dependency management to the rescue!     
+
+### Git enabled workflow
+
+The `ai init` should ask if git workflow should be enabled. If `gitWorkflow: true` in `installer.json`, each install command will be finalized
+with its own commit unless there is an error. 
+
 ## Development
 
 First link module globally:
