@@ -290,6 +290,14 @@ Create a `mainfest.json` file complete with Service Worker etc.
 Your web app will function almost like a native app when "installed".
 It will support offline mode as well ;) 
 
+See:
+- [A Beginner’s Guide To Progressive Web Apps](https://www.smashingmagazine.com/2016/08/a-beginners-guide-to-progressive-web-apps/)
+- [Offline cookbook](https://jakearchibald.com/2014/offline-cookbook/)
+- [First offline web app](https://developers.google.com/web/fundamentals/getting-started/your-first-offline-web-app/)
+- [Service worker libs](https://developers.google.com/web/tools/service-worker-libraries/)
+- [Manifest generator](http://brucelawson.github.io/manifest/)
+- [Free HTTPS Encryption](https://letsencrypt.org/)
+
 ## Development
 
 First link module globally:
