@@ -290,11 +290,32 @@ Create a `mainfest.json` file complete with Service Worker etc.
 Your web app will function almost like a native app when "installed".
 It will support offline mode as well ;) 
 
-See:
+Please help with contributions on this one!
+
+#### Progressive web apps
+
 - [A Beginner’s Guide To Progressive Web Apps](https://www.smashingmagazine.com/2016/08/a-beginners-guide-to-progressive-web-apps/)
+- [Getting started with Progressive Web Apps](https://addyosmani.com/blog/getting-started-with-progressive-web-apps/)
+
+#### Offline apps
+
 - [Offline cookbook](https://jakearchibald.com/2014/offline-cookbook/)
 - [First offline web app](https://developers.google.com/web/fundamentals/getting-started/your-first-offline-web-app/)
+
+#### Service Workers
+
 - [Service worker libs](https://developers.google.com/web/tools/service-worker-libraries/)
+- [Getting Starter with Service Worker Toolbox](http://deanhume.com/Home/BlogPost/getting-started-with-the-service-worker-toolbox/10134)
+- [Using sw-precache](https://developers.google.com/web/updates/2015/02/offline-first-with-sw-precache?hl=en)
+
+#### Push notifications
+
+- [Push notifications](https://developers.google.com/web/updates/2015/03/push-notifications-on-the-open-web?hl=en)
+- [video intro](https://developers.google.com/web/shows/google-io/2015/push-notifications?hl=en)
+- [Push app](https://developers.google.com/web/fundamentals/getting-started/push-notifications/?hl=en)
+
+#### Manifest
+
 - [Manifest generator](http://brucelawson.github.io/manifest/)
 - [Free HTTPS Encryption](https://letsencrypt.org/)
 
