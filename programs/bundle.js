@@ -1,6 +1,6 @@
 const program = require('commander');
 const ComponentBundler = require('../lib/commands/bundle');
-const GitWorkflow = require('../lib/git-workflow');
+const commit = require('../lib/commit');
 
 program
   .command('bundle [name]')
@@ -8,7 +8,7 @@ program
   .action(function(name) {    
     new ComponentBundler().bundle(name, (err) => {
       if (!err) {
-        new GitWorkflow().commit(`component ${name} bundled`);
+        commit(`component ${name} bundled`);
       }
     });
   })

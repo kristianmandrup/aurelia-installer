@@ -13,8 +13,14 @@ program
     const bundler = new VendorLibraryBundler();
 
     if (option.match(/unbundle/)) {
-      bundler.unbundle(name);
+      bundler.unbundle(name, (err) => {
+        if (!err)
+          commit(`library ${name} unbundled`);
+      });
     } else {
-      bundler.bundle(name);
+      bundler.bundle(name, (err) => {
+        if (!err)
+          commit(`library ${name} bundled`);
+      });
     }    
   })

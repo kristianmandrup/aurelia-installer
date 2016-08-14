@@ -1,6 +1,7 @@
 const program = require('commander');
 const InstallPlugin = require('../lib/commands/plugin');
 const PluginList = require('../lib/commands/plugin/list');
+const commit = require('../lib/commit');
 
 program
   .command('plugin <name>')
@@ -16,5 +17,6 @@ program
         process.exit(1);
       }
       console.log(name, 'plugin installed');
+      commit(`plugin ${name} installed`);
     });
   })
