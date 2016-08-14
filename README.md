@@ -53,6 +53,8 @@ We recommend that you first run `ai init` to initialize your installer preferenc
 - App bundle manager (webpack or systemjs)
 - Dependency module manager (npm or jspm)
 - Default Git account
+- Enable Git workflow
+- Enable Auto bundling of component dependencies
 - Default components path
 
 ## App config and layouts
@@ -264,7 +266,14 @@ Planned features coming soon...
 Many components will share a subset of dependencies while depending on unique libs for their own particular behavior.
 Imagine a set of components all using bootstrap, but with different behavior, perhaps using 
 different jquery plugins but sharing dependency on jquery etc. The developer should not be left to sort out and 
-maintain this dependency hell! Component dependency management to the rescue!     
+maintain this dependency hell! Component dependency management to the rescue!
+
+*How it could work*
+
+We need to monitor which installed components are bundled in `installer.json` (ie. `bundled: true`). 
+We should also have an `autoBundling: true` setting. When we unbundle dependency libs of a component, 
+we could iterate all installed components for their dependencies and check for overlaps.
+Then only unbundle libs with no overlaps.         
 
 ### Git enabled workflow
 
