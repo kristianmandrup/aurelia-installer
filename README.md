@@ -259,7 +259,11 @@ Please update the `registry/typings.json` with more typings install locations ;)
 
 ## Coming soon
 
-Planned features coming soon...
+Planned features coming soon:
+
+- Dependency check/management for bundles
+- Git enabled workflow
+- Manifest generation
 
 ### Dependency check/management
 
@@ -268,7 +272,7 @@ Imagine a set of components all using bootstrap, but with different behavior, pe
 different jquery plugins but sharing dependency on jquery etc. The developer should not be left to sort out and 
 maintain this dependency hell! Component dependency management to the rescue!
 
-*How it could work*
+*How it will work*
 
 We need to monitor which installed components are bundled in `installer.json` (ie. `bundled: true`). 
 We should also have an `autoBundling: true` setting. When we unbundle dependency libs of a component, 
@@ -279,6 +283,12 @@ Then only unbundle libs with no overlaps.
 
 The `ai init` should ask if git workflow should be enabled. If `gitWorkflow: true` in `installer.json`, each install command will be finalized
 with its own commit unless there is an error. 
+
+### Manifest generation - progressive web app
+
+Create a `mainfest.json` file complete with Service Worker etc. 
+Your web app will function almost like a native app when "installed".
+It will support offline mode as well ;) 
 
 ## Development
 
