@@ -1,6 +1,8 @@
 const program = require('commander');
 const VendorLibraryBundler = require('../lib/commands/library');
 const VendorLibList = require('../lib/commands/library/list');
+const commitCmd = require('../lib/command');
+const bundler = new VendorLibraryBundler();
 
 program
   .command('library <name> [option]')
@@ -10,17 +12,9 @@ program
       return new VendorLibList().list();
     }        
 
-    const bundler = new VendorLibraryBundler();
-
     if (option.match(/unbundle/)) {
-      bundler.unbundle(name, (err) => {
-        if (!err)
-          commit(`library ${name} unbundled`);
-      });
+      commitCmd(`library ${name} unbundled`, () => { bundler.unbundle(name) });
     } else {
-      bundler.bundle(name, (err) => {
-        if (!err)
-          commit(`library ${name} bundled`);
-      });
+      commitCmd(`library ${name} bundled`, () => { bundler.bundle(name) });
     }    
   })

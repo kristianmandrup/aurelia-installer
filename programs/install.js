@@ -2,7 +2,11 @@ const program = require('commander');
 const InstallFromGit = require('../lib/commands/install');
 const log = require('../lib/commands/log');
 const c = log.c;
-const commit = require('../lib/commit');
+const commitCmd = require('../lib/command');
+
+function install(repo, mountPath) {
+  new InstallFromGit().named(repo).at(mountPath).install();
+}
 
 program
   // TODO: introduce <componentType> so as to allow:
@@ -10,12 +14,5 @@ program
   .command('install <repo> [mountPath]')
   .description('Install a component from a git repo')
   .action(function(repo, mountPath) {
-    new InstallFromGit().named(repo).at(mountPath).install((err) => {
-      if (err) {
-        console.error(err);
-        process.exit(1);
-      }
-      log.success(repo, 'installed');
-      commit(`component ${name} installed`);
-    });
+    commitCmd(`component ${name} installed`, () => { install(repo, mountPath) });
   })

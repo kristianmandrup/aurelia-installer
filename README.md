@@ -46,6 +46,18 @@ All automated and provided as a CLI for your Aurelia workflows!
 
 *Coming soon* Installer commands will effect only in current/designated app when you have multiple sub-apps!
 
+## Simplified command system
+
+*WIP*
+
+- init
+- list [typings|lib|component|plugin]
+- create [app|layout|plugin|manifest] <layout-name>
+- install [typings|lib|component|plugin] <names>
+- uninstall [typings|lib|component|plugin] <names>
+- bundle <names>
+- unbundle <names>
+
 ## Init
 
 We recommend that you first run `ai init` to initialize your installer preferences (stored in `installer.json`).
@@ -259,7 +271,7 @@ Please update the `registry/typings.json` with more typings install locations ;)
 
 ## Coming soon
 
-Planned features coming soon:
+Features currently under development:
 
 - Dependency check/management for bundles
 - Git enabled workflow
@@ -272,17 +284,17 @@ Imagine a set of components all using bootstrap, but with different behavior, pe
 different jquery plugins but sharing dependency on jquery etc. The developer should not be left to sort out and 
 maintain this dependency hell! Component dependency management to the rescue!
 
-*How it will work*
+*How it works*
 
-We need to monitor which installed components are bundled in `installer.json` (ie. `bundled: true`). 
-We should also have an `autoBundling: true` setting. When we unbundle dependency libs of a component, 
-we could iterate all installed components for their dependencies and check for overlaps.
-Then only unbundle libs with no overlaps.         
+We monitor which installed components are bundled in `installer.json` (ie. `bundled: true`). 
+We also have an `autoBundling: true` setting. When we unbundle dependency libs of a component, 
+we iterate all installed components for their dependencies and check for shared dependencies (ie. conflicts).
+Then we only unbundle dependency libs without conflicts.         
 
 ### Git enabled workflow
 
-The `ai init` should ask if git workflow should be enabled. If `gitWorkflow: true` in `installer.json`, each install command will be finalized
-with its own commit unless there is an error. 
+The `ai init` asks if git workflow should be enabled. If `gitWorkflow: true` in `installer.json`, each install command 
+will be finalized with its own add/commit unless there is an error. 
 
 ### Manifest generation - progressive web app
 

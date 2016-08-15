@@ -1,7 +1,11 @@
 const program = require('commander');
 const InstallPlugin = require('../lib/commands/plugin');
 const PluginList = require('../lib/commands/plugin/list');
-const commit = require('../lib/commit');
+const commitCmd = require('../lib/command');
+
+function installPlugin(name) {
+  new InstallPlugin(name).install();
+}
 
 program
   .command('plugin <name>')
@@ -10,13 +14,5 @@ program
     if (name === ':list') {
       return new PluginList().list();
     }
-
-    new InstallPlugin(name).install((err) => {
-      if (err) {
-        console.error(err);
-        process.exit(1);
-      }
-      console.log(name, 'plugin installed');
-      commit(`plugin ${name} installed`);
-    });
+    commitCmd(`plugin ${name} installed`, () => { installPlugin(name) });
   })

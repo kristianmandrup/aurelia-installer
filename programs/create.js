@@ -1,12 +1,14 @@
 const program = require('commander');
 const ComponentCreator = require('../lib/commands/create');
-const commit = require('../lib/commit');
+const commitCmd = require('../lib/command');
+
+function create(name, mountPath) {
+  new ComponentCreator().at(mountPath).named(name).create();
+}
 
 program
   .command('create <name> [mountPath]')
   .description('Create a component within the application')
   .action(function(name, mountPath) {
-    new ComponentCreator().at(mountPath).named(name).create(() => {
-      commit(`component ${name} created`);
-    });
+    commitCmd(`component ${name} created`, () => { create(name, mountPath) });
   })

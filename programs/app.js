@@ -5,6 +5,21 @@ const Installer = require('../lib/commands/install');
 const Registry = require('../lib/commands/registry');
 const log = require('../lib/commands/log');
 const c = log.c;
+const commitCmd = require('../lib/command');
+
+function appLayout(name) {
+  new AppLayout(name, layout).generate();
+}
+
+function appSrcLayout() {
+  new AppManager().execute();
+}
+
+function switchApp(name) {
+  return new Registry().write({currentApp: name});
+}
+
+const noop = () => {  };
 
 program
   // app layout - create full app layout for app config
@@ -18,10 +33,12 @@ program
 
     switch (command.toLowerCase()) {
       case 'switch':
-        return new Registry().write({currentApp: name});
+        return switchApp(name);
       case 'layout':
-        return new AppLayout(name, layout).generate();                  
+        return commitCmd(`app layout ${name}`, () => { appLayout(name, layout) });                
       default:
-        return new AppManager().execute(name);
+        appSrcLayout((name) => {
+          commitCmd(`${name} app src layout created`, noop);
+        });        
     }    
   })

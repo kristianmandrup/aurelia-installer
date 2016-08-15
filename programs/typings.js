@@ -1,6 +1,11 @@
 const program = require('commander');
 const InstallTypings = require('../lib/commands/typings');
 const TypingsList = require('../lib/commands/typings/list');
+const commitCmd = require('../lib/command');
+
+function installTypings(name) {
+  new InstallTypings(name).install();
+}
 
 program
   .command('typings <name>')
@@ -9,12 +14,5 @@ program
     if (name === ':list') {
       return new TypingsList().list();
     }
-
-    new InstallTypings(name).install((err) => {
-      if (err) {
-        console.error(err);
-        process.exit(1);
-      }
-      console.log(name, 'typings installed');
-    });
+    commitCmd(`typings ${name} installed`, () => { installTypings(name) });
   })
