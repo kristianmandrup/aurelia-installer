@@ -1,6 +1,6 @@
 {
   "name": "aurelia-installer",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "CLI for managing aurelia components and vendor libs",
   "repository": {
     "type": "git",
