@@ -16,29 +16,17 @@
   "keywords": [
     "CLI",
     "aurelia",
+    "installer",
     "components",
-    "vendor",
-    "libs"
+    "libraries",
+    "addons",
+    "plugins",
+    "typings"
   ],
   "author": "Kristian Mandrup",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^1.1.3",
     "commander": "^2.9.0",
-    "download-git-repo": "^0.1.2",
-    "ejs": "^2.5.1",
-    "fs-extra": "^0.30.0",
-    "inquirer": "^1.1.2",
-    "jsonfile": "^2.3.1",
-    "lodash": "^4.14.1",
-    "nodegit": "^0.14.1",
-    "prepend-file": "^1.3.0",
-    "replace": "^0.3.0",
-    "replace-in-file": "^1.1.1",
-    "simple-git": "^1.47.0",
-    "slug": "^0.9.1",
-    "sort-json": "^1.3.0",
-    "suppose": "^0.6.1",
-    "underscore.string": "^3.3.4"
+    "lodash": "^4.15.0"
   }
 }

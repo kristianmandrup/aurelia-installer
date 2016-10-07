@@ -1,14 +1,19 @@
+const command = require('./command');
 const program = require('commander');
-const ComponentBundler = require('../lib/commands/bundle');
-const commitCmd = require('../lib/command');
-
-function bundle(name) {
-  new ComponentBundler().bundle(name);
-}
+const _ = require('lodash');
 
 program
-  .command('bundle [name]')
-  .description('Bundle a component with the application')
-  .action(function(name) {
-    commitCmd(`component ${name} bundled`, () => { bundle(name) });    
-  })
+  // `bundle [component|lib] <names>`
+  .command('bundle <type> [names]')
+  .description('Bundle one or more components')
+  .action((type, names) => {
+    names = names.split(',').map(name => _.trim(name));
+
+    switch (type) {
+      case 'lib':
+        return command.library.bundle(...names);
+      default:
+        return command.component(...names).bundle(); 
+    }        
+  });
+

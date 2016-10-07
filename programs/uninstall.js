@@ -1,14 +1,23 @@
+const command = require('./command');
 const program = require('commander');
-const UnInstall = require('../lib/commands/uninstall');
-const commitCmd = require('../lib/command');
 
-function uninstall(name, mountPath) {
-  new UnInstall().named(name).at(mountPath).uninstall();
-} 
-  
 program
-  .command('uninstall <name> [mountPath]')
-  .description('Uninstall a component')
-  .action(function(name, mountPath = 'components') {
-    commitCmd(`component ${name} uninstalled`, () => { uninstall(name) });
+  // `uninstall [app|typings|lib|component|plugin|addon] <names>`
+  .command('uninstall <type> <names> [mountPath]')
+  .description('Uninstall an app, component, library, typings, plugin or addon')
+  .action(function(names, mountPath = 'components') {
+    switch (type) {
+      case 'app':
+        return command.app.uninstall(...names);
+      case 'typings':
+        return command.typings.uninstall(...names);
+      case 'lib':
+        return command.lib.uninstall(...names);
+      case 'plugin':
+        return command.plugin.uninstall(...names);
+      case 'addon':
+        return command.addon.uninstall(...names);
+      default:
+        command.component.uninstall(...names); 
+    }    
   })

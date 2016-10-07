@@ -1,8 +1,0 @@
-{
-  "dependencies": [
-    // add vendor bundle dependencies for aurelia.json here
-  ],
-  "typings": [
-    // add typings install commands
-  ]
-}

@@ -1,14 +1,23 @@
+const command = require('./command');
 const program = require('commander');
-const ComponentCreator = require('../lib/commands/create');
-const commitCmd = require('../lib/command');
-
-function create(name, mountPath) {
-  new ComponentCreator().at(mountPath).named(name).create();
-}
 
 program
-  .command('create <name> [mountPath]')
-  .description('Create a component within the application')
-  .action(function(name, mountPath) {
-    commitCmd(`component ${name} created`, () => { create(name, mountPath) });
+  // `create [app|layout|plugin|manifest] <name>`
+  .command('create <type> [name]')
+  .description('Bundle one or more components')
+  .action((type, name) => {
+
+    // [app|layout|plugin|manifest]
+    switch (type) {
+      case 'app':
+        return command.app.create(name);
+      case 'pwa':
+        return command.app.pwa.create();
+      case 'layout':
+        return command.app.layout.create(name);
+      case 'plugin':
+        return command.plugin.create(name);
+      default:
+        command.component.create(name); 
+    }        
   })

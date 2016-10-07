@@ -17,46 +17,13 @@ All automated and provided as a CLI for your Aurelia workflows!
 
 ## Usage
 
-- `init` initialize your project for better `ai` experience (optional) 
-
-*App layout*
-- `ai app` create main app src layout  
-- `ai app layout <name>` add additional app with own src layout 
-- `ai app switch <name>` switch to working on a different app
-
-*Plugin*
-- `plugin <name>` install and configure a plugin
-- `plugin :list` list all registered plugins
-
-*Component*
-- `create <name>` create a new component folder
-- `install <name>` install/mount from git repo
-- `uninstall <name>` install/unmount
-- `bundle [name]` bundle component dependencies with app
-- `unbundle <name>` unbundle component dependencies from app
-
-*Vendor library*
-- `library <name>` bundle a vendor library (with typings of same name if available)
-- `library :list` list all registered vendor libs
-- `library <name> :unbundle` unbundle a vendor lib
-
-*Typings*
-- `typings <name>` install typings for a vendor lib
-- `typings :list` list all registered typings 
-
-*Coming soon* Installer commands will effect only in current/designated app when you have multiple sub-apps!
-
-## Simplified command system
-
-*WIP*
-
-- init
-- list [typings|lib|component|plugin]
-- create [app|layout|plugin|manifest] <layout-name>
-- install [typings|lib|component|plugin] <names>
-- uninstall [typings|lib|component|plugin] <names>
-- bundle <names>
-- unbundle <names>
+- `init`
+- `list [typings|lib|component|plugin]`
+- `create [app|layout|plugin|pwa] <name>`
+- `install [typings|lib|component|plugin] <names>`
+- `uninstall [app|typings|lib|component|plugin|addon] <names>`
+- `bundle [component|lib] <lib-names>`
+- `unbundle [component|lib] <lib-names>`
 
 ## Init
 

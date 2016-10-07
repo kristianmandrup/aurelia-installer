@@ -1,14 +1,16 @@
+const command = require('./command');
 const program = require('commander');
-const ComponentUnBundler = require('../lib/commands/unbundle');
-const commitCmd = require('../lib/command');
-
-function unbundle(name) {
-  new ComponentUnBundler().unbundle(name);
-}
 
 program
   .command('unbundle <name>')
   .description('Unbundle a component from the application')
-  .action(function(name) {
-    commitCmd(`component ${name} unbundled`, () => { unbundle(name) });
+  .action((type, names) => {
+    names = names.split(',').map(name => _.trim(name));
+    switch (type) {
+      case 'lib':
+        return command.library.unbundle(...names);
+      default:
+        return command.component.unbundle(...names); 
+    }        
+
   })
