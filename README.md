@@ -1,5 +1,7 @@
 # Aurelia installer
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kristianmandrup/aurelia-installer.svg)](https://greenkeeper.io/)
+
 The missing brother of [Aurelia CLI](https://github.com/aurelia/cli)
 
 - Create and manage sub applications with different src layouts
